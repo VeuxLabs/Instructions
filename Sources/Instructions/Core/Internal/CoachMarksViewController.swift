@@ -268,12 +268,10 @@ extension CoachMarksViewController {
     // MARK: - Private methods
     fileprivate func registerForSystemEventChanges() {
         let center = NotificationCenter.default
-
         center.addObserver(self, selector: #selector(prepareForChange),
-                           name: .UIApplicationWillChangeStatusBarFrame, object: nil)
-
+                           name: UIApplication.willChangeStatusBarFrameNotification, object: nil)
         center.addObserver(self, selector: #selector(restoreAfterChangeDidComplete),
-                           name: .UIApplicationDidChangeStatusBarFrame, object: nil)
+                           name: UIApplication.didChangeStatusBarFrameNotification, object: nil)
     }
 
     fileprivate func deregisterFromSystemEventChanges() {
